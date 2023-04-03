@@ -1,0 +1,9 @@
+insert into MOVIE values (1, '2021-12-12','Movie 1');
+insert into MOVIE values (2, '2021-12-12','Movie 2');
+insert into MOVIE values (3, '2021-12-12','Movie 3');
+insert into MOVIE values (4, '2021-12-12','Movie 4');
+insert into MOVIE values (5, '2021-12-12','Movie 5');
+insert into MOVIE values (6, '2021-12-12','Movie 6');
+insert into MOVIE values (7, '2021-12-12','Movie 7');
+insert into MOVIE values (8, '2021-12-12','Movie 8');
+insert into MOVIE values (9, '2021-12-12','Movie 9');

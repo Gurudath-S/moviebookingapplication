@@ -1,0 +1,131 @@
+2023-03-09 11:27:55,780 [restartedMain] INFO  c.m.m.MoviebookingapplicationApplication           - Starting MoviebookingapplicationApplication using Java 11.0.11 on MT-5CD12778N0 with PID 14144 (C:\Spring boot hands on lab\moviebookingapplication\target\classes started by M1073071 in C:\Spring boot hands on lab\moviebookingapplication)
+2023-03-09 11:27:55,780 [restartedMain] INFO  c.m.m.MoviebookingapplicationApplication           - No active profile set, falling back to 1 default profile: "default"
+2023-03-09 11:27:55,954 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-09 11:27:55,971 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 22 ms. Found 5 JPA repository interfaces.
+2023-03-09 11:27:56,044 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 8080 (http)
+2023-03-09 11:27:56,045 [restartedMain] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2023-03-09 11:27:56,045 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-09 11:27:56,067 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2023-03-09 11:27:56,067 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 285 ms
+2023-03-09 11:27:56,071 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-9 - Starting...
+2023-03-09 11:27:56,071 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-9 - Start completed.
+2023-03-09 11:27:56,071 [restartedMain] INFO  o.s.b.a.h2.H2ConsoleAutoConfiguration              - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:moviedb'
+2023-03-09 11:27:56,111 [restartedMain] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-09 11:27:56,119 [restartedMain] INFO  org.hibernate.dialect.Dialect                      - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-09 11:27:56,209 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists inox CASCADE 
+2023-03-09 11:27:56,209 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists inox_screens CASCADE 
+2023-03-09 11:27:56,209 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists movie CASCADE 
+2023-03-09 11:27:56,209 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists movie_show_cycle CASCADE 
+2023-03-09 11:27:56,209 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists movie_user CASCADE 
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists pvr CASCADE 
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists pvr_screens CASCADE 
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists screen CASCADE 
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists show CASCADE 
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - drop table if exists ticket CASCADE 
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - drop sequence if exists hibernate_sequence
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - create sequence hibernate_sequence start with 1 increment by 1
+2023-03-09 11:27:56,210 [restartedMain] DEBUG org.hibernate.SQL                                  - create table inox (location varchar(255) not null, primary key (location))
+2023-03-09 11:27:56,211 [restartedMain] DEBUG org.hibernate.SQL                                  - create table inox_screens (inox_location varchar(255) not null, screens_id bigint not null)
+2023-03-09 11:27:56,212 [restartedMain] DEBUG org.hibernate.SQL                                  - create table movie (movie_id bigint not null, release_date date, title varchar(255), primary key (movie_id))
+2023-03-09 11:27:56,212 [restartedMain] DEBUG org.hibernate.SQL                                  - create table movie_show_cycle (movie_movie_id bigint not null, show_cycle varchar(255))
+2023-03-09 11:27:56,212 [restartedMain] DEBUG org.hibernate.SQL                                  - create table movie_user (user_id bigint not null, user_name varchar(255), user_password varchar(255), primary key (user_id))
+2023-03-09 11:27:56,213 [restartedMain] DEBUG org.hibernate.SQL                                  - create table pvr (location varchar(255) not null, primary key (location))
+2023-03-09 11:27:56,214 [restartedMain] DEBUG org.hibernate.SQL                                  - create table pvr_screens (pvr_location varchar(255) not null, screens_id bigint not null)
+2023-03-09 11:27:56,215 [restartedMain] DEBUG org.hibernate.SQL                                  - create table screen (id bigint not null, cinema integer, movie_movie_id bigint, primary key (id))
+2023-03-09 11:27:56,215 [restartedMain] DEBUG org.hibernate.SQL                                  - create table show (id bigint not null, show_date date, show_timing integer, screen_id bigint, primary key (id))
+2023-03-09 11:27:56,215 [restartedMain] DEBUG org.hibernate.SQL                                  - create table ticket (ticket_id bigint not null, booking_date date, show_id bigint, user_user_id bigint, primary key (ticket_id))
+2023-03-09 11:27:56,216 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table inox_screens add constraint UK_46abvh8bqxfaa5so73y55h8oh unique (screens_id)
+2023-03-09 11:27:56,216 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table pvr_screens add constraint UK_q73gsbxd188ddpgalyauycacc unique (screens_id)
+2023-03-09 11:27:56,217 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table inox_screens add constraint FKsh68oan824w2opt03wtuy5wpg foreign key (screens_id) references screen
+2023-03-09 11:27:56,217 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table inox_screens add constraint FK52mxlxqx41fxy9dr9jk1amnux foreign key (inox_location) references inox
+2023-03-09 11:27:56,218 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table movie_show_cycle add constraint FKr5f980o512jub8han48wu4ryq foreign key (movie_movie_id) references movie
+2023-03-09 11:27:56,219 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table pvr_screens add constraint FKh5njrt4wo6fswdgobnfwi4h95 foreign key (screens_id) references screen
+2023-03-09 11:27:56,220 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table pvr_screens add constraint FKq5es8obh8dahsrv4l3btj4hrl foreign key (pvr_location) references pvr
+2023-03-09 11:27:56,222 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table screen add constraint FKpi8g6eabp5ymc54cc0y3hhn7y foreign key (movie_movie_id) references movie
+2023-03-09 11:27:56,223 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table show add constraint FKpmdhsg2pprfg2634ojdwiv181 foreign key (screen_id) references screen
+2023-03-09 11:27:56,224 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table ticket add constraint FKd142jb6gj0dhu38tyf2bn5tc foreign key (show_id) references show
+2023-03-09 11:27:56,225 [restartedMain] DEBUG org.hibernate.SQL                                  - alter table ticket add constraint FK16d8c3tiujcue4etxcpt62u3f foreign key (user_user_id) references movie_user
+2023-03-09 11:27:56,227 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-09 11:27:56,232 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-09 11:27:56,335 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,337 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,338 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,338 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,340 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie (release_date, title, movie_id) values (?, ?, ?)
+2023-03-09 11:27:56,340 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie (release_date, title, movie_id) values (?, ?, ?)
+2023-03-09 11:27:56,340 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie (release_date, title, movie_id) values (?, ?, ?)
+2023-03-09 11:27:56,341 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie (release_date, title, movie_id) values (?, ?, ?)
+2023-03-09 11:27:56,341 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,341 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,341 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,341 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,342 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,342 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,342 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,342 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,342 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_show_cycle (movie_movie_id, show_cycle) values (?, ?)
+2023-03-09 11:27:56,344 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,344 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,344 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,344 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,345 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,345 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,345 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,345 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,346 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,346 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,346 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,347 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,347 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,347 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,347 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,347 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into screen (cinema, movie_movie_id, id) values (?, ?, ?)
+2023-03-09 11:27:56,349 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,349 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,349 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,349 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,350 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,350 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,350 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,351 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into show (screen_id, show_date, show_timing, id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,351 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into show (screen_id, show_date, show_timing, id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,351 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into show (screen_id, show_date, show_timing, id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,352 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into show (screen_id, show_date, show_timing, id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,352 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into show (screen_id, show_date, show_timing, id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,352 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into show (screen_id, show_date, show_timing, id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,353 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into show (screen_id, show_date, show_timing, id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,355 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,355 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,355 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_user (user_name, user_password, user_id) values (?, ?, ?)
+2023-03-09 11:27:56,356 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into movie_user (user_name, user_password, user_id) values (?, ?, ?)
+2023-03-09 11:27:56,357 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,358 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,358 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,358 [restartedMain] DEBUG org.hibernate.SQL                                  - call next value for hibernate_sequence
+2023-03-09 11:27:56,358 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into ticket (booking_date, show_id, user_user_id, ticket_id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,359 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into ticket (booking_date, show_id, user_user_id, ticket_id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,359 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into ticket (booking_date, show_id, user_user_id, ticket_id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,359 [restartedMain] DEBUG org.hibernate.SQL                                  - insert into ticket (booking_date, show_id, user_user_id, ticket_id) values (?, ?, ?, ?)
+2023-03-09 11:27:56,368 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-09 11:27:56,427 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729
+2023-03-09 11:27:56,435 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-09 11:27:56,437 [restartedMain] INFO  c.m.m.MoviebookingapplicationApplication           - Started MoviebookingapplicationApplication in 0.724 seconds (JVM running for 1314.354)
+2023-03-09 11:27:56,438 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener  - Condition evaluation unchanged
+2023-03-09 11:28:24,538 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-03-09 11:28:24,687 [Thread-39] INFO  org.apache.catalina.core.StandardService           - Stopping service [Tomcat]
+2023-03-09 11:28:24,687 [Thread-39] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-09 11:28:24,687 [Thread-39] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl  - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists inox CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists inox_screens CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists movie CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists movie_show_cycle CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists movie_user CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists pvr CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists pvr_screens CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists screen CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists show CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop table if exists ticket CASCADE 
+2023-03-09 11:28:24,687 [Thread-39] DEBUG org.hibernate.SQL                                  - drop sequence if exists hibernate_sequence
+2023-03-09 11:28:24,887 [Thread-39] WARN  o.s.b.f.support.DisposableBeanAdapter              - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+2023-03-09 11:28:24,887 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-9 - Shutdown initiated...
+2023-03-09 11:28:24,887 [Thread-39] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-9 - Shutdown completed.
